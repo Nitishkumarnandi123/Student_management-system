@@ -1,0 +1,56 @@
+{% extends 'parent.html' %}
+{% block title %}
+
+Add student Page
+{% endblock %}
+{% block content %}
+
+<div class="container">
+
+<h2 align="center">Add new student</h2>
+<form action="" method="post">
+    {% csrf_token %}
+
+    <div class="mb-3">
+  <label for="txn" class="form-label">Name</label>
+  <input type="text" class="form-control" id="txn" name="txn"><br>
+</div>
+    <div class="mb-3">
+   <label for="ddlcourse" class="form-label">Course</label>
+    <select name="ddlcourse" id=" ddlcourse " class="form-select" aria-label="Default select example">
+  {% for c in courses %}
+    <option>{{c.cname}}</option>
+    {% endfor %}
+</select>
+    </div>
+
+    <div class="mb-3">
+  <label for="txn2" class="form-label">Phone_no</label>
+  <input type="text" class="form-control" id="txn2" name="txn2"><br>
+</div>
+
+    <div class="mb-3">
+  <label for="txn3" class="form-label">Email</label>
+  <input type="text"  class="form-control"id="txn3" name="txn3"><br>
+</div>
+
+    <div class="mb-3">
+  <label for="txn4" class="form-label">Age</label>
+  <input type="text"  class="form-control" id="txn4" name="txn4"><br>
+</div>
+
+ Name: <input type="text" name="txn"><br>
+  Course:<select  name= "ddlcourse" id="ddlcourse">
+    {% for c in courses %}
+    <option>{{c.cname}}</option>
+    {% endfor %}
+
+</select><br>
+  Phone_no:<input type="number" name="txn2"><br>
+  Email:<input type="text" name="txn3"><br>
+ Age:<input type="text" name="txn4"><br>
+  <input type="submit" value="Save" class="btn btn-primary form-control">
+
+
+</form>
+{% endblock %}

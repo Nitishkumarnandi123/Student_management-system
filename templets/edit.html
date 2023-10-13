@@ -1,0 +1,24 @@
+{% extends 'parent.html' %}
+{% block title %}
+edit page
+{% endblock %}
+{% block content %}
+<h2>Edit Student Page</h2>
+<form method="post" action="">
+    {% csrf_token %}
+    Name: <input type="text" name="txn" value="{{student.name}}"><br>
+    course<select name ="dllcourse">
+    <option>{{student.course}}</option>
+    {% for c in courses %}
+    <option>{{c.cname}}</option>
+    {% endfor %}
+</select>
+    Age: <input type="text" name="txn4" value="{{student.age}}"><br>
+    phno: <input type="text" name="txn2" value="{{student.phno}}"><br>
+    email:<input type="email" name="txn3" value="{{student.email}}">
+    <br>
+    <input type="submit" value="update" class="btn btn-outline-warning btn-lg form-control ">
+
+
+</form>
+{% endblock %}
